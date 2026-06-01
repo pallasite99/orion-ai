@@ -11,6 +11,9 @@
 
 ORION is a software-first personal intelligence layer. It keeps context, organizes work, searches files, records voice input, automates repetitive actions, and learns from feedback so responses improve over time.
 
+<img width="1131" height="787" alt="image" src="https://github.com/user-attachments/assets/411d69b3-530f-417b-936a-4ed28d17c2cd" />
+
+
 ## Why It Stands Out
 
 - Built as a command-center, not a generic chat app
@@ -41,6 +44,12 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 - `app/(app)/memory/page.tsx` for memory review and editing
 - `app/(app)/files/page.tsx` for uploads, chunking, and file Q&A
 - `app/(app)/settings/page.tsx` for personalization and learning controls
+
+<img width="1123" height="870" alt="image" src="https://github.com/user-attachments/assets/3f20e6bf-66cd-4eac-831c-a50d9f451203" />
+<img width="990" height="616" alt="image" src="https://github.com/user-attachments/assets/0dc443cb-7384-4b03-8359-f8c1062750f1" />
+<img width="998" height="762" alt="image" src="https://github.com/user-attachments/assets/aa867cf4-5994-40d6-8714-f0c53577d93c" />
+<img width="1101" height="846" alt="image" src="https://github.com/user-attachments/assets/00c59894-5c3e-48b3-9cf6-f2cb4838c06a" />
+
 
 ## Tech Stack
 
