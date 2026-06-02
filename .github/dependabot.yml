@@ -1,0 +1,35 @@
+version: 2
+
+updates:
+  - package-ecosystem: "npm"
+    directory: "/orion-app"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "dependabot"
+    commit-message:
+      prefix: "deps"
+      include: "scope"
+    groups:
+      nextjs:
+        patterns:
+          - "next"
+          - "@next/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+      testing:
+        patterns:
+          - "vitest"
+          - "@vitest/*"
+      supabase:
+        patterns:
+          - "@supabase/*"
+          - "supabase"
+      tailwind:
+        patterns:
+          - "tailwindcss"
+          - "@tailwindcss/*"
