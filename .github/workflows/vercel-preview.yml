@@ -18,6 +18,7 @@ jobs:
   deploy:
     name: Build and deploy preview to Vercel
     runs-on: ubuntu-latest
+    if: ${{ secrets.VERCEL_TOKEN != '' && secrets.VERCEL_ORG_ID != '' && secrets.VERCEL_PROJECT_ID != '' }}
 
     steps:
       - name: Checkout
@@ -34,13 +35,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Verify Vercel credentials
-        shell: pwsh
-        run: |
-          if (-not $env:VERCEL_TOKEN) { throw "Set the VERCEL_TOKEN repository secret." }
-          if (-not $env:VERCEL_ORG_ID) { throw "Set the VERCEL_ORG_ID repository secret." }
-          if (-not $env:VERCEL_PROJECT_ID) { throw "Set the VERCEL_PROJECT_ID repository secret." }
 
       - name: Deploy project artifacts
         run: vercel deploy --token="$VERCEL_TOKEN"
