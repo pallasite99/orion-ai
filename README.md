@@ -111,6 +111,18 @@ npm run tauri:build
 The generated installer is bundled from `src-tauri/` and targets `msi` on Windows.
 If you deploy to a different Vercel project or custom domain, set `ORION_TAURI_FRONTEND_URL` to that URL instead.
 
+### Vercel Deployment
+
+The repo includes a GitHub Actions workflow that deploys `main` to Vercel automatically.
+
+Set these GitHub secrets before enabling the workflow:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+The production deployment URL is what the MSI workflow uses as the desktop shell target.
+
 ## Environment Variables
 
 - `AI_PROVIDER` - `mock`, `groq`, or `openai`
@@ -120,6 +132,9 @@ If you deploy to a different Vercel project or custom domain, set `ORION_TAURI_F
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_KEY`
 - `ORION_TAURI_FRONTEND_URL` - URL loaded by the desktop shell during MSI builds
+- `VERCEL_TOKEN` - Vercel deployment token for GitHub Actions
+- `VERCEL_ORG_ID` - Vercel organization ID for the project
+- `VERCEL_PROJECT_ID` - Vercel project ID for the app
 
 ## Development
 
