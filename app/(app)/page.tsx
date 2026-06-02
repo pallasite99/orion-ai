@@ -77,6 +77,16 @@ export default function DashboardPage() {
               🎯 Focus Mode
             </Button>
           </Link>
+          <Link href="/inbox">
+            <Button variant="outline" className="w-full text-left">
+              Inbox Capture
+            </Button>
+          </Link>
+          <Link href="/learning">
+            <Button variant="outline" className="w-full text-left">
+              Learning
+            </Button>
+          </Link>
         </div>
 
         {/* Unread Messages */}

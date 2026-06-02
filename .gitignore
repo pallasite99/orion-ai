@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+/orion-dev.log
 
 # debug
 npm-debug.log*

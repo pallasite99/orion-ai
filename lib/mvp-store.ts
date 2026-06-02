@@ -4,6 +4,7 @@ import type { FocusSession, FocusSessionCreateRequest } from '@/types/focus';
 import type { Reminder, ReminderCreateRequest, ReminderStatus } from '@/types/reminder';
 import type { AutomationEvent, AutomationEventCreateRequest } from '@/types/automation';
 import type { FeedbackEntry, FeedbackCreateRequest } from '@/types/feedback';
+import type { InboxItem, InboxCreateRequest, InboxUpdateRequest } from '@/types/inbox';
 import type { Project, Task, TaskCreateRequest, TaskStatus } from '@/types/task';
 import type { AppSettings } from '@/types/settings';
 
@@ -17,6 +18,7 @@ const STORAGE_KEYS = {
   reminders: 'orion.mvp.reminders',
   automationEvents: 'orion.mvp.automation_events',
   feedbackEntries: 'orion.mvp.feedback_entries',
+  inboxItems: 'orion.mvp.inbox_items',
   settings: 'orion.mvp.settings',
 };
 
@@ -204,6 +206,20 @@ const seedAutomationEvents: AutomationEvent[] = [
 ];
 
 const seedFeedbackEntries: FeedbackEntry[] = [];
+
+const seedInboxItems: InboxItem[] = [
+  {
+    id: 'inbox-1',
+    user_id: 'user-placeholder',
+    type: 'note',
+    title: 'Capture idea',
+    content: 'Turn short notes into tasks or memories from one place.',
+    status: 'new',
+    source: 'seed',
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  },
+];
 
 const seedSettings: AppSettings = {
   compactMode: false,
@@ -473,6 +489,9 @@ export function seedLocalData() {
   if (!window.localStorage.getItem(STORAGE_KEYS.feedbackEntries)) {
     window.localStorage.setItem(STORAGE_KEYS.feedbackEntries, JSON.stringify(seedFeedbackEntries));
   }
+  if (!window.localStorage.getItem(STORAGE_KEYS.inboxItems)) {
+    window.localStorage.setItem(STORAGE_KEYS.inboxItems, JSON.stringify(seedInboxItems));
+  }
   if (!window.localStorage.getItem(STORAGE_KEYS.settings)) {
     window.localStorage.setItem(STORAGE_KEYS.settings, JSON.stringify(seedSettings));
   }
@@ -668,6 +687,58 @@ export function createFeedbackEntry(
   const entries = [entry, ...getFeedbackEntries()];
   saveFeedbackEntries(entries);
   return entry;
+}
+
+export function getInboxItems() {
+  return readCollection(STORAGE_KEYS.inboxItems, seedInboxItems);
+}
+
+export function saveInboxItems(items: InboxItem[]) {
+  writeCollection(STORAGE_KEYS.inboxItems, items);
+}
+
+export function createInboxItem(
+  input: InboxCreateRequest,
+  userId = 'user-placeholder'
+): InboxItem {
+  const item: InboxItem = {
+    id: createId(),
+    user_id: userId,
+    type: input.type,
+    title: input.title,
+    content: input.content,
+    status: 'new',
+    source: input.source,
+    created_at: new Date().toISOString(),
+    updated_at: new Date().toISOString(),
+  };
+
+  const items = [item, ...getInboxItems()];
+  saveInboxItems(items);
+  return item;
+}
+
+export function updateInboxItem(
+  id: string,
+  patch: InboxUpdateRequest
+): InboxItem | null {
+  const items = getInboxItems();
+  const index = items.findIndex((item) => item.id === id);
+  if (index === -1) return null;
+
+  const updated = {
+    ...items[index],
+    ...patch,
+    updated_at: new Date().toISOString(),
+  };
+  items[index] = updated;
+  saveInboxItems(items);
+  return updated;
+}
+
+export function deleteInboxItem(id: string) {
+  const items = getInboxItems().filter((item) => item.id !== id);
+  saveInboxItems(items);
 }
 
 export function getAppSettings() {
