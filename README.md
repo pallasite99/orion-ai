@@ -104,7 +104,7 @@ npm run tauri:dev
 For MSI builds, point the shell at your deployed ORION web URL:
 
 ```bash
-$env:ORION_TAURI_FRONTEND_URL="https://orion-ai.vercel.app"
+$env:ORION_TAURI_FRONTEND_URL="https://orion-ai-five.vercel.app"
 npm run tauri:build
 ```
 
