@@ -4,6 +4,7 @@
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tauri](https://img.shields.io/badge/Tauri-Desktop-24C8DB?style=for-the-badge&logo=tauri)](https://tauri.app/)
 [![Supabase](https://img.shields.io/badge/Supabase-compatible-3ecf8e?style=for-the-badge&logo=supabase)](https://supabase.com/)
 [![Vitest](https://img.shields.io/badge/Tests-Vitest-6e9f18?style=for-the-badge&logo=vitest)](https://vitest.dev/)
 
@@ -22,6 +23,7 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 - Automation that can create work items from conversation
 - Feedback loop that stores lessons and helpful patterns
 - Capture inbox for fast triage of ideas, tasks, links, and reminders
+- Desktop shell path for Windows MSI packaging
 - Local MVP mode works without cloud setup
 
 ## Feature Snapshot
@@ -70,6 +72,7 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 ## Tech Stack
 
 - Frontend: Next.js 16, React 19, TypeScript, Tailwind CSS
+- Desktop: Tauri + Rust for Windows MSI packaging
 - Backend: Next.js route handlers
 - Storage: local MVP store with Supabase-compatible abstractions
 - AI: mock, Groq, or OpenAI depending on environment variables
@@ -90,6 +93,23 @@ npm run dev
 
 Then open [http://localhost:3000](http://localhost:3000).
 
+### Desktop Shell
+
+ORION now includes a Tauri desktop shell for Windows packaging.
+
+```bash
+npm run tauri:dev
+```
+
+For MSI builds, point the shell at your deployed ORION web URL:
+
+```bash
+$env:ORION_TAURI_FRONTEND_URL="https://your-deployed-orion-url"
+npm run tauri:build
+```
+
+The generated installer is bundled from `src-tauri/` and targets `msi` on Windows.
+
 ## Environment Variables
 
 - `AI_PROVIDER` - `mock`, `groq`, or `openai`
@@ -98,6 +118,7 @@ Then open [http://localhost:3000](http://localhost:3000).
 - `NEXT_PUBLIC_SUPABASE_URL` - optional real Supabase connection
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 - `SUPABASE_SERVICE_KEY`
+- `ORION_TAURI_FRONTEND_URL` - URL loaded by the desktop shell during MSI builds
 
 ## Development
 
@@ -148,6 +169,7 @@ tests/         # Vitest coverage
 - Phase 6: Automation workflows
 - Phase 7: Learning from self and user feedback
 - Phase 8: Unified inbox and learning surfaces
+- Phase 9: Desktop shell and MSI packaging
 
 ## Known Limitations
 
