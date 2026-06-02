@@ -1,6 +1,6 @@
 # ORION
 
-> Personal AI operating system for chat, memory, tasks, files, voice, automation, and self-learning.
+> Personal AI operating system for chat, memory, tasks, files, voice, automation, inbox capture, and self-learning.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=for-the-badge&logo=nextdotjs)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
@@ -9,7 +9,7 @@
 
 ## What It Is
 
-ORION is a software-first personal intelligence layer. It keeps context, organizes work, searches files, records voice input, automates repetitive actions, and learns from feedback so responses improve over time.
+ORION is a software-first personal intelligence layer. It keeps context, organizes work, searches files, records voice input, automates repetitive actions, captures incoming work in an inbox, and learns from feedback so responses improve over time.
 
 <img width="1131" height="787" alt="image" src="https://github.com/user-attachments/assets/411d69b3-530f-417b-936a-4ed28d17c2cd" />
 
@@ -21,6 +21,7 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 - Task, project, file, and reminder workflows in one place
 - Automation that can create work items from conversation
 - Feedback loop that stores lessons and helpful patterns
+- Capture inbox for fast triage of ideas, tasks, links, and reminders
 - Local MVP mode works without cloud setup
 
 ## Feature Snapshot
@@ -36,6 +37,7 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 | Search | Unified search across tasks, memories, projects, and files |
 | Settings | Tone, language, timezone, voice, memory, learning |
 | Learning | Feedback capture and self-reflection notes |
+| Inbox | Quick capture and triage for tasks, notes, reminders, and links |
 
 ## Screens At a Glance
 
@@ -43,6 +45,8 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 - `app/(app)/today/page.tsx` for the daily briefing dashboard
 - `app/(app)/memory/page.tsx` for memory review and editing
 - `app/(app)/files/page.tsx` for uploads, chunking, and file Q&A
+- `app/(app)/inbox/page.tsx` for capture and triage
+- `app/(app)/learning/page.tsx` for feedback and lessons
 - `app/(app)/settings/page.tsx` for personalization and learning controls
 
 <img width="1123" height="870" alt="image" src="https://github.com/user-attachments/assets/3f20e6bf-66cd-4eac-831c-a50d9f451203" />
@@ -131,6 +135,7 @@ tests/         # Vitest coverage
 - Phase 5: Voice interface
 - Phase 6: Automation workflows
 - Phase 7: Learning from self and user feedback
+- Phase 8: Unified inbox and learning surfaces
 
 ## Known Limitations
 
@@ -139,6 +144,7 @@ tests/         # Vitest coverage
 - Real AI requires valid API keys
 - Server-side Supabase persistence is optional
 - Learning is local and feedback-driven, not model fine-tuning
+- Inbox is local-first capture and triage, not a full email client
 
 ## Contributing
 
@@ -148,6 +154,7 @@ If you want to help, the best entry points are:
 2. Expand automation rules and reminder workflows.
 3. Tighten the learning loop and feedback history.
 4. Add more test coverage around the app routes and services.
+5. Expand the inbox into a true triage workspace with shortcuts and filters.
 
 ## License
 
