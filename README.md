@@ -114,6 +114,7 @@ If you deploy to a different Vercel project or custom domain, set `ORION_TAURI_F
 ### Vercel Deployment
 
 The repo includes a GitHub Actions workflow that deploys `main` to Vercel automatically.
+It also includes a preview workflow for pull requests and feature branches.
 
 Set these GitHub secrets before enabling the workflow:
 
