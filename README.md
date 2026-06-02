@@ -39,6 +39,14 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 | Learning | Feedback capture and self-reflection notes |
 | Inbox | Quick capture and triage for tasks, notes, reminders, and links |
 
+## Phase 8 Highlights
+
+- Unified capture inbox for fast triage of ideas, tasks, reminders, and links
+- Dedicated learning view for feedback history and reusable lessons
+- Compact in-chat feedback panel that closes after submission
+- Sidebar and dashboard entry points for the new surfaces
+- Local-first persistence so the workflow stays usable without cloud setup
+
 ## Screens At a Glance
 
 - `app/(app)/chat/page.tsx` for conversational workflow and feedback teaching
@@ -49,10 +57,14 @@ ORION is a software-first personal intelligence layer. It keeps context, organiz
 - `app/(app)/learning/page.tsx` for feedback and lessons
 - `app/(app)/settings/page.tsx` for personalization and learning controls
 
-<img width="1123" height="870" alt="image" src="https://github.com/user-attachments/assets/3f20e6bf-66cd-4eac-831c-a50d9f451203" />
-<img width="990" height="616" alt="image" src="https://github.com/user-attachments/assets/0dc443cb-7384-4b03-8359-f8c1062750f1" />
-<img width="998" height="762" alt="image" src="https://github.com/user-attachments/assets/aa867cf4-5994-40d6-8714-f0c53577d93c" />
-<img width="1101" height="846" alt="image" src="https://github.com/user-attachments/assets/00c59894-5c3e-48b3-9cf6-f2cb4838c06a" />
+### Gallery
+
+| View | Preview |
+| --- | --- |
+| Dashboard | <img width="1123" height="870" alt="ORION dashboard" src="https://github.com/user-attachments/assets/411d69b3-530f-417b-936a-4ed28d17c2cd" /> |
+| Today | <img width="990" height="616" alt="ORION today view" src="https://github.com/user-attachments/assets/0dc443cb-7384-4b03-8359-f8c1062750f1" /> |
+| Memory | <img width="998" height="762" alt="ORION memory view" src="https://github.com/user-attachments/assets/aa867cf4-5994-40d6-8714-f0c53577d93c" /> |
+| Files | <img width="1101" height="846" alt="ORION files view" src="https://github.com/user-attachments/assets/00c59894-5c3e-48b3-9cf6-f2cb4838c06a" /> |
 
 
 ## Tech Stack
