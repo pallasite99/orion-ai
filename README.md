@@ -124,6 +124,18 @@ Set these GitHub secrets before enabling the workflow:
 
 The production deployment URL is what the MSI workflow uses as the desktop shell target.
 
+### Adding the GitHub Secrets
+
+In the GitHub repository, go to `Settings` > `Secrets and variables` > `Actions`, then add:
+
+- `VERCEL_TOKEN`: your Vercel personal token from the Vercel account settings
+- `VERCEL_ORG_ID`: your Vercel team or user org ID
+- `VERCEL_PROJECT_ID`: the Vercel project ID for `orion-ai`
+
+If you prefer using repository variables instead of secrets for the desktop shell target, add:
+
+- `ORION_TAURI_FRONTEND_URL`: `https://orion-ai-five.vercel.app`
+
 ## Environment Variables
 
 - `AI_PROVIDER` - `mock`, `groq`, or `openai`
