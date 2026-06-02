@@ -223,6 +223,7 @@ export default function ChatPage() {
       if (result?.feedback) {
         setLearningStatus(`Feedback saved: ${result.feedback.rating}`);
         setFeedbackNote('');
+        setFeedbackTargetId(null);
       }
     } catch (error) {
       console.error('Feedback save error:', error);
@@ -289,29 +290,30 @@ export default function ChatPage() {
       </div>
 
       {selectedFeedbackMessage ? (
-        <section className="mb-4 rounded-2xl border border-gray-800 bg-gray-950/80 p-4">
-          <div className="flex flex-wrap items-center justify-between gap-3">
+        <section className="mb-4 rounded-2xl border border-gray-800 bg-gray-950/80 p-3">
+          <div className="flex flex-wrap items-start justify-between gap-2">
             <div>
-              <div className="text-xs uppercase tracking-[0.35em] text-cyan-300">Teach Orion</div>
-              <h2 className="mt-1 text-lg font-semibold text-white">Rate the selected reply</h2>
-              <p className="mt-1 text-sm text-gray-400">
+              <div className="text-[10px] uppercase tracking-[0.35em] text-cyan-300">Teach Orion</div>
+              <h2 className="mt-1 text-base font-semibold text-white">Rate the reply</h2>
+              <p className="mt-1 text-xs text-gray-400">
                 Orion will turn this into a lesson and remember the pattern.
               </p>
             </div>
-            <div className="text-xs uppercase tracking-[0.25em] text-gray-500">{learningStatus}</div>
+            <div className="text-[10px] uppercase tracking-[0.25em] text-gray-500">{learningStatus}</div>
           </div>
 
-          <div className="mt-4 rounded-2xl border border-gray-800 bg-black/40 p-4">
-            <p className="text-sm leading-6 text-gray-300">
+          <div className="mt-3 rounded-xl border border-gray-800 bg-black/40 p-3">
+            <p className="text-xs leading-5 text-gray-300">
               {selectedFeedbackMessage.content.slice(0, 220)}
               {selectedFeedbackMessage.content.length > 220 ? '...' : ''}
             </p>
           </div>
 
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-3 flex flex-wrap gap-2">
             <Button
               type="button"
               variant={feedbackRating === 'helpful' ? 'default' : 'outline'}
+              size="sm"
               onClick={() => setFeedbackRating('helpful')}
             >
               Helpful
@@ -319,9 +321,13 @@ export default function ChatPage() {
             <Button
               type="button"
               variant={feedbackRating === 'needs_work' ? 'default' : 'outline'}
+              size="sm"
               onClick={() => setFeedbackRating('needs_work')}
             >
               Needs work
+            </Button>
+            <Button type="button" variant="outline" size="sm" onClick={() => setFeedbackTargetId(null)}>
+              Dismiss
             </Button>
           </div>
 
@@ -329,20 +335,18 @@ export default function ChatPage() {
             value={feedbackNote}
             onChange={(e) => setFeedbackNote(e.target.value)}
             placeholder="Optional note for Orion, for example: be more concise, include next steps, ask fewer questions."
-            rows={3}
-            className="mt-4 w-full rounded-2xl border border-gray-800 bg-black/50 px-4 py-3 text-white placeholder:text-gray-600 focus:border-cyan-500 focus:outline-none"
+            rows={2}
+            className="mt-3 w-full rounded-xl border border-gray-800 bg-black/50 px-3 py-2 text-sm text-white placeholder:text-gray-600 focus:border-cyan-500 focus:outline-none"
           />
 
-          <div className="mt-4 flex flex-wrap gap-3">
+          <div className="mt-3 flex flex-wrap gap-2">
             <Button
               type="button"
+              size="sm"
               className="bg-cyan-600 font-semibold text-black hover:bg-cyan-700"
               onClick={submitFeedback}
             >
               Save feedback
-            </Button>
-            <Button type="button" variant="outline" onClick={() => setFeedbackTargetId(null)}>
-              Dismiss
             </Button>
           </div>
         </section>
